@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/templatePrincipal.xhtml">
+	<ui:define name="conteudo">
+		<h3>
+			<p:outputLabel value="Cadastro de Usuario" />
+
+			<h:panelGrid columns="4" cellpadding="5">
+
+				<h:outputLabel value="Nome:" />
+				<p:inputText value="#{UsuarioBean.usuario.nome}" required="true" label="nome"/>
+
+				<h:outputLabel value="CPF:" />
+				<p:inputMask value="#{UsuarioBean.usuario.cpf}" mask="999.999.999-99" required="true"/>
+
+				<h:outputLabel value="Data de Nascimento:" />
+				<p:inputMask value="#{UsuarioBean.usuario.datanascimento}" mask="99/99/9999" required="true"/>
+				
+				<p:outputLabel value="Senha" />
+				<p:password value="#{UsuarioBean.usuario.senha}" required="true" label="senha" />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Cadastrar" update="@form" actionListener="#{UsuarioBean.salvar}" />
+		</h3>
+	</ui:define>
+</ui:composition>
+
+</html>

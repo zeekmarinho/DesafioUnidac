@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/templatePrincipal.xhtml">
+	<ui:define name="conteudo">
+		<h3>
+			<p:outputLabel value="Cadastro de Usuario" />
+
+			<h:panelGrid columns="4" cellpadding="5">
+
+
+				<h:outputLabel value="CPF:" />
+				<p:inputMask value="#{UsuarioBean.usuario.cpf}" mask="999.999.999-99" required="true"/>
+
+
+			</h:panelGrid>
+
+			<p:commandButton value="Deletar" update="@form" actionListener="#{UsuarioDAO.removerUsuario}" />
+		</h3>
+	</ui:define>
+</ui:composition>
+
+</html>
